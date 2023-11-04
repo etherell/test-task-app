@@ -19,6 +19,7 @@ gem 'bootsnap', require: false
 gem 'slim', '~> 5.1', '>= 5.1.1'
 
 group :development, :test do
+  gem 'factory_bot_rails', '~> 6.2'
   gem 'lefthook', '~> 1.1.1', require: false
   gem 'pry-rails', '~> 0.3'
 
