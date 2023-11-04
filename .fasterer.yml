@@ -1,0 +1,7 @@
+speedups:
+  fetch_with_argument_vs_block: false
+  each_with_index_vs_while: false
+  block_vs_symbol_to_proc: false
+
+exclude_paths:
+  - 'vendor/**/*.rb'

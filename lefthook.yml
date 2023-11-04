@@ -1,0 +1,25 @@
+linters:
+  parallel: true
+  commands:
+    bundle-audit:
+      run: bundle exec bundle-audit check --update
+    bundler_leak:
+      run: bundle leak check --update
+    brakeman:
+      run: bundle exec brakeman -c config/brakeman.yml --only-files {staged_files} .
+    fasterer:
+      glob: "**/*.rb"
+      run: bundle exec fasterer {staged_files}
+    rails_best_practices:
+      run: bundle exec rails_best_practices {staged_files} -c config/rails_best_practices.yml
+    rubocop:
+      glob: "{*.{ru,rb,rake,gemspec},Gemfile,Rakefile}"
+      run: bundle exec rubocop --parallel --format=emacs --force-exclusion --display-cop-names {staged_files}
+
+pre-commit:
+  parallel: true
+  commands:
+    linters:
+      run: lefthook run linters
+    generators:
+      run: lefthook run generators
