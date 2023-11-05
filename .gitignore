@@ -34,3 +34,5 @@
 
 # Ignore test coverage info
 /coverage/*
+
+/config/credentials/test.key

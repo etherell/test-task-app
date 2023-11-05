@@ -1,0 +1,117 @@
+version: 2.1
+
+orbs:
+  browser-tools: circleci/browser-tools@1.3.0
+
+defaults: &defaults
+  working_directory: ~/test-task-app
+  resource_class: small
+  docker:
+    - image: cimg/ruby:3.0.2
+      environment:
+        PAGER: cat
+        BUNDLE_JOBS: 4
+        BUNDLE_RETRY: 3
+        BUNDLE_PATH: vendor/bundle
+        PGHOST: 127.0.0.1
+        PGUSER: postgres
+        RAILS_ENV: test
+
+    - image: cimg/postgres:11.15
+      environment:
+        POSTGRES_USER: postgres
+
+executors:
+  deploy_image:
+    docker:
+      - image: cimg/ruby:3.0.2
+
+caches:
+  - &gem_cache gem-cache-v1-{{ checksum "Gemfile.lock" }}
+
+references:
+  restore_bundle_cache: &restore_bundle_cache
+    restore_cache:
+      keys:
+        - *gem_cache
+
+  bundle_install: &bundle_install
+    run:
+      name: Installing gems
+      command: bundle check || bundle install
+
+  save_bundle_cache: &save_bundle_cache
+    save_cache:
+      key: *gem_cache
+      paths:
+        - ~/test-task-app/vendor/bundle
+
+  install_postgres: &install_postgres
+    run:
+      name: Installing postgres cli
+      command: sudo apt-get update && sudo apt-get install postgresql-client
+
+  create_database: &create_database
+    run:
+      name: Creating database
+      command: bundle exec rails db:create
+
+  migrate_database: &migrate_database
+    run:
+      name: Migrating database
+      command: bundle exec rails db:migrate
+
+jobs:
+  linters:
+    <<: *defaults
+
+    steps:
+      - checkout
+      - <<: *restore_bundle_cache
+      - <<: *bundle_install
+      - <<: *save_bundle_cache
+
+      - run:
+          name: Running rubocop
+          command: bundle exec rubocop --format=emacs --display-cop-names
+
+      - run:
+          name: Running fasterer
+          command: bundle exec fasterer
+
+      - run:
+          name: Running rails-best-practices
+          command: bundle exec rails_best_practices .
+
+      - run:
+          name: Running bundle-audit
+          command: bundle exec bundle-audit check --update
+
+  tests:
+    <<: *defaults
+
+    steps:
+      - checkout
+      - <<: *install_postgres
+      - <<: *restore_bundle_cache
+      - <<: *bundle_install
+      - <<: *create_database
+      - <<: *migrate_database
+
+      - run:
+          name: Running tests
+          command: bundle exec rspec --order random
+
+      - store_artifacts:
+          path: ~/test-task-app/coverage
+          destination: coverage
+
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - linters
+      - tests:
+          requires:
+            - linters

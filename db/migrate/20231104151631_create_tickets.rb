@@ -7,7 +7,7 @@ class CreateTickets < ActiveRecord::Migration[7.1]
       t.string :request_action, null: false
       t.datetime :response_due_date_time, null: false
       t.string :primary_service_aria_code, null: false
-      t.text :additional_service_area_codes, array:true, default: []
+      t.text :additional_service_area_codes, array: true, default: []
       t.text :designite_info_text, null: false
 
       t.timestamps

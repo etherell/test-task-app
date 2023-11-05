@@ -10,7 +10,7 @@ gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.1.1'
 
 # Utils
-gem 'tzinfo-data', platforms: %i[windows jruby]
+gem 'tzinfo-data'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
