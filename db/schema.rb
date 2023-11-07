@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_04_203520) do
   create_table "excavators", force: :cascade do |t|
     t.string "company_name", null: false
     t.string "address", null: false
-    t.boolean "crew_on_site", default: false, null: false
+    t.boolean "crew_onsite", default: false, null: false
     t.bigint "ticket_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -26,11 +26,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_04_203520) do
 
   create_table "tickets", force: :cascade do |t|
     t.string "request_number", null: false
-    t.integer "sequance_number", null: false
+    t.integer "sequence_number", null: false
     t.string "request_type", null: false
     t.string "request_action", null: false
     t.datetime "response_due_date_time", null: false
-    t.string "primary_service_aria_code", null: false
+    t.string "primary_service_area_code", null: false
     t.text "additional_service_area_codes", default: [], array: true
     t.text "designite_info_text", null: false
     t.datetime "created_at", null: false
