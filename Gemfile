@@ -19,10 +19,12 @@ gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.11', '>= 2.11.5'
 
 # Front end
+gem 'sassc-rails', '~> 2.1.2'
 gem 'slim', '~> 5.1', '>= 5.1.1'
 
 group :development, :test do
   gem 'factory_bot_rails', '~> 6.2'
+  gem 'ffaker', '~> 2.20'
   gem 'lefthook', '~> 1.1.1', require: false
   gem 'pry-rails', '~> 0.3'
 
@@ -56,3 +58,7 @@ group :test do
   gem 'site_prism', '~> 3.7'
   gem 'webdrivers', '~> 5.2.0'
 end
+
+gem 'importmap-rails', '~> 1.2'
+
+gem 'tailwindcss-rails', '~> 2.0'
