@@ -1,5 +1,7 @@
 # Test task app
 
+[Link to deployed app](https://mysite-plcr.onrender.com/)
+
 To achieve all requirements I used the next libraries and technologies:
 
 - Tailwind for styles

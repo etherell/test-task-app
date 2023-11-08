@@ -20,3 +20,7 @@ test:
 
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+  database: test_task_app_production
+  username: test_task_app
+  password: <%= ENV['TEST_TASK_APP_RENDER_DATABASE_PASSWORD'] %>
