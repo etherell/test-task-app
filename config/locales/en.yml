@@ -1,31 +1,25 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  tickets:
+    excavator_details:
+      title: 'Excavator %{id}'
+      company_name: 'Company name:'
+      address: 'Address:'
+      crew_onsite: 'Crew onsite:'
+    ticket_details:
+      title: 'Ticket %{id}'
+      sequence_number: 'Sequence number:'
+      request_type: 'Request type:'
+      request_action: 'Request action:'
+      response_due_date_time: 'Response due date time:'
+      primary_service_area_code: 'Primary service area code:'
+      additional_service_area_codes: 'Additional service area codes:'
+    ticket:
+      title: 'Ticket %{id}'
+      sequence_number: 'Sequence number:'
+      request_type: 'Request type:'
+      request_action: 'Request action:'
+      details: Details
+    index:
+      title: Tickets
+    show:
+      title: Ticket

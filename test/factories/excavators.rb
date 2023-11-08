@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :excavator do
-    company_name { 'MyString' }
-    address { 'MyString' }
+    company_name { FFaker::Lorem.word }
+    address { FFaker::Lorem.word }
     crew_onsite { false }
-    ticket { nil }
+    ticket
   end
 end

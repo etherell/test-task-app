@@ -19,8 +19,11 @@ gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.11', '>= 2.11.5'
 
 # Front end
+gem 'importmap-rails', '~> 1.2'
 gem 'sassc-rails', '~> 2.1.2'
-gem 'slim', '~> 5.1', '>= 5.1.1'
+
+# Map with locations
+gem 'mapkick-rb', '~> 0.1.5'
 
 group :development, :test do
   gem 'factory_bot_rails', '~> 6.2'
@@ -58,7 +61,3 @@ group :test do
   gem 'site_prism', '~> 3.7'
   gem 'webdrivers', '~> 5.2.0'
 end
-
-gem 'importmap-rails', '~> 1.2'
-
-gem 'tailwindcss-rails', '~> 2.0'

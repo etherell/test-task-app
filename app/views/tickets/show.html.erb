@@ -1,0 +1,18 @@
+
+<div class="flex flex-col justify-center items-center h-[100vh] mb-4">
+    <div class="relative flex flex-col items-center rounded-[20px] w-[700px] max-w-[95%] mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500 dark:!bg-navy-800 dark:text-white dark:!shadow-none p-3">
+        <div class="mt-2 mb-4 w-full">
+            <h4 class="px-2 text-xl font-bold text-navy-700 dark:text-white">
+              <%= t('.title') %>
+            </h4>
+        </div> 
+        <div class="grid grid-cols-1 gap-4 px-2 w-full  mb-4">
+            <%= render partial: 'ticket_details', locals: { ticket: @ticket } %>
+        </div>
+        <div class="grid grid-cols-1 gap-4 px-2 w-full">
+            <%= render partial: 'excavator_details', locals: { excavator: @ticket.excavator } %>
+        </div>
+    </div>  
+</div>
+
+<%= js_map map_coordinates(@ticket) %>
