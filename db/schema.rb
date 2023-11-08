@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_04_203520) do
     t.datetime "response_due_date_time", null: false
     t.string "primary_service_area_code", null: false
     t.text "additional_service_area_codes", default: [], array: true
-    t.text "designite_info_text", null: false
+    t.text "digsite_info_text", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

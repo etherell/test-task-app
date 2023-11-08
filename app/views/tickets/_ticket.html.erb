@@ -1,24 +1,24 @@
 <div class="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
   <p class="text-xl pb-2 text-navy-800"><%= t('.title', id: ticket.id) %></p>
-  <p class="text-sm font-medium dark:text-white">
+  <p class="request_number text-sm font-medium dark:text-white">
     <span class="text-gray-700"><%= t('.request_number') %></span>
     <span class="text-gray-400"><%= ticket.request_number %></span>
   </p>
-  <p class="text-sm font-medium dark:text-white">
+  <p class="sequence_number text-sm font-medium dark:text-white">
     <span class="text-gray-700"><%= t('.sequence_number') %></span>
     <span class="text-gray-400"><%= ticket.sequence_number %></span>
   </p>
-  <p class="text-sm font-medium dark:text-white">
+  <p class="request_type text-sm font-medium dark:text-white">
     <span class="text-gray-700"><%= t('.request_type') %></span>
     <span class="text-gray-400"><%= ticket.request_type %></span>
   </p>
-  <p class="text-sm font-medium dark:text-white">
+  <p class="request_action text-sm font-medium dark:text-white">
     <span class="text-gray-700"><%= t('.request_action') %></span>
     <span class="text-gray-400"><%= ticket.request_action %></span>
   </p>
   <div class='pt-3'>
     <%= link_to ticket_path(ticket.id) do %>
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
+      <button class="details-btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
         <%= t('.details') %>
       </button>
     <% end %>

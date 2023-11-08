@@ -5,14 +5,14 @@
             <h4 class="px-2 text-xl font-bold text-navy-700 dark:text-white">
               <%= t('.title') %>
             </h4>
-        </div> 
+        </div>
         <div class="grid grid-cols-1 gap-4 px-2 w-full  mb-4">
-            <%= render partial: 'ticket_details', locals: { ticket: @ticket } %>
+            <%= render 'ticket_details', ticket: @ticket %>
         </div>
         <div class="grid grid-cols-1 gap-4 px-2 w-full">
-            <%= render partial: 'excavator_details', locals: { excavator: @ticket.excavator } %>
+            <%= render 'excavator_details', excavator: @ticket.excavator %>
         </div>
-    </div>  
+    </div>
 </div>
 
-<%= js_map map_coordinates(@ticket) %>
+<%= js_map @ticket.digging_coordinates %>

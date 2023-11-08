@@ -22,6 +22,9 @@ gem 'jbuilder', '~> 2.11', '>= 2.11.5'
 gem 'importmap-rails', '~> 1.2'
 gem 'sassc-rails', '~> 2.1.2'
 
+# Decorators/View-Models for Rails Applications
+gem 'draper', '~> 4.0.2'
+
 # Map with locations
 gem 'mapkick-rb', '~> 0.1.5'
 

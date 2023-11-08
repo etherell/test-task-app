@@ -28,7 +28,7 @@ module Tickets
           response_due_date_time: ticket_params[:date_times][:response_due_date_time],
           primary_service_area_code: ticket_params[:service_area][:primary_service_area_code][:sa_code],
           additional_service_area_codes: ticket_params[:service_area][:additional_service_area_codes][:sa_code],
-          designite_info_text: ticket_params[:excavation_info][:digsite_info][:well_known_text]
+          digsite_info_text: ticket_params[:excavation_info][:digsite_info][:well_known_text]
         )
     end
 
