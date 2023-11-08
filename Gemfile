@@ -19,10 +19,18 @@ gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.11', '>= 2.11.5'
 
 # Front end
-gem 'slim', '~> 5.1', '>= 5.1.1'
+gem 'importmap-rails', '~> 1.2'
+gem 'sassc-rails', '~> 2.1.2'
+
+# Decorators/View-Models for Rails Applications
+gem 'draper', '~> 4.0.2'
+
+# Map with locations
+gem 'mapkick-rb', '~> 0.1.5'
 
 group :development, :test do
   gem 'factory_bot_rails', '~> 6.2'
+  gem 'ffaker', '~> 2.20'
   gem 'lefthook', '~> 1.1.1', require: false
   gem 'pry-rails', '~> 0.3'
 

@@ -28,3 +28,7 @@ Lint/MissingSuper:
 Metrics/AbcSize:
   Exclude:
     - app/services/tickets/create_service.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - lib/tasks/auto_annotate_models.rake

@@ -16,10 +16,19 @@
 #  created_at                    :datetime         not null
 #  updated_at                    :datetime         not null
 #
-class Ticket < ApplicationRecord
-  has_one :excavator, dependent: :destroy
+FactoryBot.define do
+  factory :ticket do
+    request_number { SecureRandom.uuid }
+    sequence_number { rand(1..100) }
+    request_type { FFaker::Lorem.word }
+    request_action { FFaker::Lorem.word }
+    response_due_date_time { DateTime.now + rand(1..5).day }
+    primary_service_area_code { FFaker::Lorem.word }
+    additional_service_area_codes { [FFaker::Lorem.word] }
+    digsite_info_text { 'POLYGON((-81.13390268058475 32.07206917625161,-81.14660562247929 32.04064386441295))' }
 
-  validates :request_number, :sequence_number, :request_type, :request_action,
-            :response_due_date_time, :primary_service_area_code, :primary_service_area_code,
-            :additional_service_area_codes, :digsite_info_text, presence: true
+    after(:create) do |ticket|
+      create(:excavator, ticket: ticket)
+    end
+  end
 end

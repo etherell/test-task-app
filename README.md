@@ -1,24 +1,10 @@
-# README
+# Test task app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To achieve all requirements I used the next libraries and technologies:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Tailwind for styles
+- Ruby as a server-side language
+- RSpec for automated MVC unit tests
+- rubocop, fasterer, brakeman, rails_best_practices to analyze code
+- pry for debugging
+- mapkick-rb which uses mapbox to add map view with points
