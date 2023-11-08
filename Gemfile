@@ -15,6 +15,9 @@ gem 'tzinfo-data'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+# API
+gem 'jbuilder', '~> 2.11', '>= 2.11.5'
+
 # Front end
 gem 'slim', '~> 5.1', '>= 5.1.1'
 
@@ -45,6 +48,7 @@ group :test do
   gem 'capybara', '~> 3.37'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'database_cleaner', '~> 2.0.1'
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
   gem 'rspec-rails', '~> 5.1'
   gem 'rspec-sidekiq', '~> 3.1.0'
   gem 'shoulda-matchers', '~> 5.2.0'

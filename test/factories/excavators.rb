@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :excavator do
     company_name { 'MyString' }
     address { 'MyString' }
-    crew_on_site { false }
+    crew_onsite { false }
     ticket { nil }
   end
 end

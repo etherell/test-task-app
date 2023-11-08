@@ -20,4 +20,11 @@ Style/FetchEnvVar:
 
 Style/OpenStructUse:
   Enabled: false
-  
+
+Lint/MissingSuper:
+  Exclude:
+    - app/services/tickets/create_service.rb
+
+Metrics/AbcSize:
+  Exclude:
+    - app/services/tickets/create_service.rb
